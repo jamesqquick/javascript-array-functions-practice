@@ -48,7 +48,7 @@ const characters = [
 
 ## REDUCE
 
-1. Get the total weight of all characters
+1. Get the total mass of all characters
 2. Get the total height of all characters
 3. Get the total number of characters in all the character names
 4. Get the total number of characters by eye color (hint. a map of eye color to count)
@@ -64,13 +64,13 @@ const characters = [
 
 1. Sort by name
 2. Sort by mass
-3. Sort by weight
+3. Sort by height
 4. Sort by gender
 
 ## EVERY
 
 1. Does every character have blue eyes?
-2. Does every character weigh more than 40?
+2. Does every character have mass more than 40?
 3. Is every character shorter than 200?
 4. Is every character male?
 
@@ -79,4 +79,4 @@ const characters = [
 1. Is there at least one male character?
 2. Is there at least one character with blue eyes?
 3. Is there at least one character taller than 200?
-4. Is there at least one character that weighs less than 50?
+4. Is there at least one character that has mass less than 50?
