@@ -60,7 +60,7 @@ const allMass = characters.reduce((acc, currentEl) => {
 const totalHeight = characters.reduce((acc, currentEl) => {
     return acc + currentEl.height
 },0)
-console.log(totalHeight)
+// console.log(totalHeight)
 //3. Get total number of characters by eye color
 const byEyeColor = characters.reduce((acc, currentEl) => {
     if(acc[currentEl.eye_color]) {
@@ -70,20 +70,26 @@ const byEyeColor = characters.reduce((acc, currentEl) => {
     }
     return acc
 }, {})
-console.log(byEyeColor)
+// console.log(byEyeColor)
 //4. Get total number of characters in all the character names
 const totalNameCharacters = characters.reduce((acc, currentEl) => {
     return acc + currentEl.name.length
 },0)
-console.log(totalNameCharacters)
+// console.log(totalNameCharacters)
 
 //***FILTER***
-//1. Get characters with mass greater than 100
-
-
-//2. Get characters with height less than 200
-//3. Get all male characters
-//4. Get all female characters
+//?1. Get characters with mass greater than 100
+const charMassGreather = characters.filter(element => element.mass > 100)
+// console.log(charMassGreather)
+//?2. Get characters with height less than 200
+const filterHeight = characters.filter(element => element.height < 200)
+// console.log(filterHeight)
+//?3. Get all male characters
+const allMale = characters.filter(element => element.gender === "male")
+// console.log(allMale)
+//?4. Get all female characters
+const allFemale = characters.filter(element => element.gender === "female")
+// console.log(allFemale)
 
 //***SORT***
 //1. Sort by mass
