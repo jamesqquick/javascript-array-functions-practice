@@ -1,0 +1,151 @@
+
+import { useEffect, useState } from "react";
+export default function App() {
+const [characters, setCharacters] = useState([
+    {
+      name: "Luke Skywalker",
+      height: "172",
+      mass: "77",
+      eye_color: "blue",
+      gender: "male"
+    },
+    {
+      name: "Darth Vader",
+      height: "202",
+      mass: "136",
+      eye_color: "yellow",
+      gender: "male"
+    },
+    {
+      name: "Leia Organa",
+      height: "150",
+      mass: "49",
+      eye_color: "brown",
+      gender: "female"
+    },
+    {
+      name: "Anakin Skywalker",
+      height: "188",
+      mass: "84",
+      eye_color: "blue",
+      gender: "male"
+    }
+  ]);
+
+  useEffect(() => {
+
+// Get the total mass of all characters
+const totalMass = characters.reduce((acc, character) => acc + Number(character.mass),0);
+console.log(totalMass);
+
+// Get the total height of all characters
+const totalHeight = characters.reduce((acc,ch)=>acc+Number(ch.height),0)
+console.log(totalHeight)
+
+// Get the total number of characters in all the character names
+const characterLength = characters.reduce((acc,ch)=> acc+ ch.name.split(' ')[0].length + ch.name.split(' ')[1].length,0)
+console.log(characterLength)
+
+// Get the total number of characters by eye color (hint. a map of eye color to count)
+const eyeCharacters = characters.reduce((acc,ch)=>acc+ch.eye_color.length,0)
+console.log(eyeCharacters)
+
+// Get characters with mass greater than 100
+const character100 = characters.filter((ch)=>ch.mass > 100)
+console.log(character100)
+
+// Get characters with height less than 200
+const character200 = characters.filter((ch)=>ch.height<200)
+console.log(character200)
+
+// Get all male characters
+const characterMale = characters.filter((ch)=>ch.gender === 'male')
+console.log(characterMale)
+
+// Get all female characters
+const characterFemale = characters.filter((ch)=>ch.gender === 'female')
+console.log(characterFemale)
+
+
+// sort by name
+const sortName = characters.sort((a,b)=>{
+  const NameA = a.name.toUpperCase()
+  const NameB = b.name.toUpperCase()
+  if(NameA<NameB){return -1}
+  if(NameA>NameB){return 1}
+  return 0;
+})
+console.log(sortName)
+
+// sort by mass
+const sortMass = characters.sort((a,b)=>a.mass - b.mass)
+console.log(sortMass)
+
+// sort by height
+const sortHeight = characters.sort((a,b)=>a.height - b.height)
+console.log(sortHeight)
+
+
+// sort by gender
+const sortGender =characters.sort((a,b)=>{
+  const genderA = a.gender.toUpperCase()
+  const genderB = b.gender.toUpperCase()
+  if(genderA<genderB){return -1}
+  if(genderA>genderB){return 1}
+  return 0
+})
+console.log(sortGender)
+
+// does every character has blue eyes
+const blueEyes = characters.every((ch)=>ch.eye_color==='blue')
+console.log(blueEyes)
+
+// Does every character have mass more than 40?
+const mass40 = characters.every((ch)=>ch.mass> 40)
+console.log(mass40)
+
+// Is every character shorter than 200?
+const height200 = characters.every((ch)=>ch.height>200)
+console.log(height200)
+
+// Is every character male?
+const genderMale = characters.every((ch)=>ch.gender ==='male')
+console.log(genderMale)
+
+
+// Is there at least one male character?
+const someMale = characters.some((ch)=>ch.gender==='male')
+console.log(someMale)
+
+
+// Is there at least one character with blue eyes?
+const someBlueEyes = characters.some((ch)=>ch.eye_color==='blue')
+console.log(someBlueEyes)
+
+
+//Is there at least one character taller than 200?
+const someTaller200 = characters.some((ch)=>ch.height>200)
+console.log(someTaller200)
+
+// Is there at least one character that has mass less than 50?
+const someMass50 = characters.some((ch)=>ch.mass<50)
+console.log(someMass50)
+
+}, [characters]);
+  return (
+    <>
+
+{/* Get an array of all names */}
+{characters.map((ch) => (<h1 key={ch.name}>{ch.name}</h1>))}
+
+{/* Get an array of all heights */}
+{characters.map((ch) => (<h1 key={ch.name}>{ch.height}</h1>))}
+
+{/* Get an array of objects with just name and height properties */}
+{characters.map((ch) => (<h1 key={ch.name}>{ch.name} {ch.height}</h1>))}
+
+{/* Get an array of all first names */}
+{characters.map((ch) => (<h1 key={ch.name}>{ch.name.split(" ")[0]}</h1>))}
+
+
+</>);}
